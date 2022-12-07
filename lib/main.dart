@@ -11,10 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MainScreen(title: 'Flutter Demo Home Page'),
+      home: const MainScreen(title: 'Komiksih'),
     );
   }
 }
@@ -46,7 +43,6 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    ProfilePage(),
   ];
 
   @override
@@ -82,7 +78,7 @@ class _MainScreenState extends State<MainScreen> {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         backgroundColor: Color.fromARGB(255, 204, 28, 28),
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -108,7 +104,6 @@ class _MainScreenState extends State<MainScreen> {
           _buildOffstageNavigator(0),
           _buildOffstageNavigator(1),
           _buildOffstageNavigator(2),
-          _buildOffstageNavigator(3),
         ],
       ),
     );
@@ -119,9 +114,6 @@ class _MainScreenState extends State<MainScreen> {
       '/': (context) {
         return [
           HomePage(),
-          OrderPage(),
-          EmailPage(),
-          ProfilePage(),
         ].elementAt(index);
       },
     };
@@ -155,113 +147,6 @@ class HomePage extends StatelessWidget {
           Row( 
           ),
         ],
-      ),
-    );
-  }
-}
-
-class OrderPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Color.fromARGB(255, 124, 122, 22),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            child: Text(
-              'ini konten pesanan',
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-            margin: EdgeInsets.all(16),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Screen2()));
-            },
-            child: Text('halaman selanjutnya'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class EmailPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Color.fromARGB(255, 39, 161, 135),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            child: Text(
-              'ini konten email',
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-            margin: EdgeInsets.all(16),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Screen2()));
-            },
-            child: Text('halaman selanjutnya'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Color.fromARGB(255, 204, 48, 191),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            child: Text(
-              'ini konten akun',
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-            margin: EdgeInsets.all(16),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Screen2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Color.fromARGB(255, 206, 36, 36),
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              child: Text(
-                'ini halaman selanjutnya',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-              margin: EdgeInsets.all(16),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('kembali'),
-            ),
-          ],
-        ),
       ),
     );
   }
